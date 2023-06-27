@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presupuesto app</title>
+    <script src="https://kit.fontawesome.com/15492b6dfd.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        h2{
+            text-align: center;
+            padding: 30px;
+        }
+        .container {
+            position: relative;
+            width: 1400px;
+            max-width: 100%;
+            
+            background: azure;
+            /*box-shadow: 0 1px 1px 0 black, 0 2px 5px 0 black;*/
+            display: flex;
+        }
+
+
+
+        .left {
+            padding: 15px;
+            justify-content: flex-start;
+            width: 30%;
+
+        }
+
+        .ingreso {
+            padding: 20px;
+            background-color: blueviolet;
+            flex: 40%;
+            border-radius: 3%;
+            margin-bottom: 25px;
+
+        }
+
+        .gastos {
+            padding: 20px;
+            background-color: cadetblue;
+            flex: 40%;
+            border-radius: 3%;
+            margin-bottom: 25px;
+
+        }
+
+        .input {
+            height: 40px;
+            width: 90%;
+        }
+
+        .calcular1 {
+            background-color: rgb(195, 166, 222);
+        }
+
+        .calcular2 {
+            background-color: rgb(145, 208, 210);
+        }
+
+        .right {
+            justify-content: flex-end;
+            padding: 20px;
+            width: 50%;
+        }
+
+        .detalle {
+            flex: 40%;
+            margin-bottom: 25px;
+            justify-content: space-around;
+        }
+
+        .table{
+            flex: 40%;
+            margin-bottom: 25px;
+            /*align-items: center;*/
+            padding-left: 50px;
+
+           
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Presupuesto APP</h2>
+    <div class="container">
+        <div class="left">
+            <div class="ingreso">
+                <p>Ingresa tu presupuesto</p>
+                <input class="input" id="presupuesto" type="text" placeholder="PRESUPUESTO">
+
+                <p><b><button onclick="obtenerPresupuesto()" class="calcular1" type="submit">Calcular</button></b></p>
+
+            </div>
+
+
+            <div class="gastos">
+                <div class="nombre">
+                    <p>Ingresa el nombre del gasto</p>
+                    <input id="nombreGasto" class="input" type="text" placeholder="GASTO">
+                </div>
+                <div class="total">
+                    <p>Ingresa la cantidad del gasto</p>
+                    <input id="precioGasto" class="input" type="text" placeholder="CANTIDAD">
+
+                    <p><b><button onclick="agregarGasto()" class="calcular2" type="submit">Añadir Gasto</button></b></p>
+                </div>
+            </div>
+        </div>
+
+        <!--detalle-->
+        <div class="right">
+            <div class="container text-center">
+                <div class="detalle">
+                    <div class="row">
+                        <div class="col">
+                            PRESUPUESTO
+                            <div id="presupuestoInfo" class="presupuesto">$0</div>
+                        </div>
+                        <div class="col">
+                            GASTOS
+                            <div id="gastoInfo" class="gasto">$0</div>
+                        </div>
+                        <div class="col">
+                            SALDO
+                            <div id="saldoInfo" class="saldo">$0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <table class="table">
+                <thead>
+                    <tr>
+
+                        <th scope="col">GASTO</th>
+                        <th scope="col">VALOR</th>
+                        <td><i class="fa-regular fa-trash-can" onclick = "borrarDatos()"></i></td>
+                    </tr>
+                </thead>
+                <tbody id="bodyTable">
+
+
+
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/logica.js"></script>
+
+</body>
+
+</html>
